@@ -1,0 +1,28 @@
+{
+  "name": "a02-chaynickunc",
+  "version": "1.0.0",
+  "description": "Assignment 02 for comp 426 by Nicholas Carter, bash script that tells you if you need your galoshes tomorrow",
+  "main": "index.js",
+  "scripts": {
+    "test": "node cli.js -n 35.92 -w 79.05 -z America/New_York"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comp426-2022-fall/a02-chaynickUNC.git"
+  },
+  "author": "Nicholas Carter",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/comp426-2022-fall/a02-chaynickUNC/issues"
+  },
+  "homepage": "https://github.com/comp426-2022-fall/a02-chaynickUNC#readme",
+  "bin": {
+    "galosh.js": "./cli.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "minimist": "^1.2.6",
+    "moment-timezone": "^0.5.37",
+    "node-fetch": "^3.2.10"
+  }
+}
