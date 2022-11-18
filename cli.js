@@ -11,7 +11,15 @@ if(argv["h"]){
     process.exit(0);
 }
 if(argv["j"]){
-    const response = await fetch("https://api.open-meteo.com/v1/forecast?latitude=35.875&longitude=-79&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,precipitation_hours,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant&current_weather=true&timezone=America%2FNew_York");
+    var j_url = "https://api.open-meteo.com/v1/forecast?";
+    if(argv["n"] || argv["s"]){ j_url += (argv["s"]) ? `latitude=${-argv["s"]}&` : `latitude=${argv["n"]}&` }
+    else { j_url += "latitude=35.0&"; }
+    if(argv["e"] || argv["w"]){ j_url += (argv["w"]) ? `longitude=${-argv["w"]}&` : `longitude=${argv["e"]}&` }
+    else { j_url += "longitude=66.875&"; }
+    if(argv["z"]){ j_url += "timezone="+argv["z"]+"&"}
+    else{ j_url += "timezone=America/New_York&"}
+    j_url += "daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,precipitation_hours,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant&current_weather=true&";
+    const response = await fetch(j_url);
     const data = await response.json();
     console.log(data);
     process.exit(0);
